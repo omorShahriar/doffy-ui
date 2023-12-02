@@ -14,7 +14,7 @@ export const MqttProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const connectUrl = "ws://broker.emqx.io:8083/mqtt"
+        const connectUrl = "wss://broker.emqx.io:8084/mqtt"
         const options = {
             clientId: 'emqx_react_' + Math.random().toString(16).substring(2, 8),
             clean: true,
