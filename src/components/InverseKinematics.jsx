@@ -33,7 +33,7 @@ const InverseKinematics = () => {
         await sleep(500);
         publish('0', 'doffy/gripper');
         await sleep(500);
-        publish("66", 'doffy/joints/shoulder')
+        publish("80", 'doffy/joints/shoulder')
         await sleep(500);
         publish("90", 'doffy/joints/base')
         await sleep(500);
