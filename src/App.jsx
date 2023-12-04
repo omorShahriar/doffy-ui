@@ -4,6 +4,10 @@ import Slider from "./components/slider";
 import useMqttPub from "./hooks/useMqttPub";
 import { MqttContext } from "./hooks/MqttProvider";
 import useMqttSub from "./hooks/useMqttSub";
+import InverseKinematics from "./components/InverseKinematics";
+
+
+
 
 
 const joints = [
@@ -43,6 +47,7 @@ function App() {
   const { client } = useContext(MqttContext)
   const publish = useMqttPub();
   const subscribe = useMqttSub();
+
   useEffect(() => {
     if (client) {
       subscribe({ topic: 'doffy/#' })
@@ -65,9 +70,11 @@ function App() {
     setIsGripperOpen(!isGripperOpen)
   }
   return (
+
+
     <>
       <h1 className="text-4xl py-8 font-bold text-center ">
-        Doffy
+        GrabSync
       </h1>
 
       <section className="container mx-auto px-2 ">
@@ -92,14 +99,17 @@ function App() {
           }
 
         </div>
-        <div className="my-8">
+        <InverseKinematics />
+        {/* <div className="my-8">
           <h2>Test segment</h2>
           <Button onClick={() => publish('80', 'doffy/joints/base')}>publish message</Button>
           <p>Message: {message}</p>
-        </div>
+        </div> */}
       </section>
 
     </>
+
+
   )
 }
 
